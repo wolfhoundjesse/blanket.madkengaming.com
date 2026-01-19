@@ -1,16 +1,16 @@
 import type { Database } from 'bun:sqlite'
 
-export type Progress = {
+export type LastCompletedRow = {
   id: number
   last_knitted_date: string | null
   updated_at: string
 }
 
-export class ProgressService {
+export class LastCompletedRowService {
   constructor(private db: Database) {}
 
-  get(): Progress | null {
-    const stmt = this.db.query<Progress, []>(`
+  get(): LastCompletedRow | null {
+    const stmt = this.db.query<LastCompletedRow, []>(`
       SELECT id, last_knitted_date, updated_at
       FROM progress
       WHERE id = 1

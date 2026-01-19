@@ -3,7 +3,7 @@ import type { TemperatureRangeInsert } from '@/models'
 import {
   DailyTemperatureService,
   TemperatureRangeService,
-  ProgressService,
+  LastCompletedRowService,
 } from './services'
 
 const db = new Database('db.sqlite', { create: true, strict: true })
@@ -69,7 +69,7 @@ initDb()
 // Export services
 export const temperatureRangeService = new TemperatureRangeService(db)
 export const dailyTemperatureService = new DailyTemperatureService(db)
-export const progressService = new ProgressService(db)
+export const lastCompletedRowService = new LastCompletedRowService(db)
 
 // Export database instance for advanced use cases
 export default db

@@ -8,8 +8,3 @@ export type DailyTemperature = {
 }
 
 export type DailyTemperatureInsert = Omit<DailyTemperature, 'created_at'>
-
-export type DatabaseStats = {
-  total: number
-  latest: string | null
-}
