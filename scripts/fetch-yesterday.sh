@@ -21,4 +21,6 @@ if [ -f .env ]; then
 fi
 
 # Run the TypeScript script with Bun
-bun run "$SCRIPT_DIR/fetch-yesterday.ts"
+# Use full path to bun executable to ensure it works in cron environment
+# Adjust this path if bun is installed elsewhere (check with: which bun)
+/home/appuser/.bun/bin/bun run "$SCRIPT_DIR/fetch-yesterday.ts"

@@ -62,8 +62,8 @@ async function fetchYesterday() {
       console.log(`Record for ${day.datetime} already exists (skipped)`)
     }
 
-    const stats = await dailyTemperatureService.getStats()
-    console.log(`Total records: ${stats.total}, Latest: ${stats.latest}`)
+    const latest = await dailyTemperatureService.getLastRecordedDate()
+    console.log(`Latest recorded date: ${latest}`)
     console.log(`${new Date().toISOString()}: Successfully completed`)
   } catch (error) {
     console.error(`${new Date().toISOString()}: Error fetching yesterday data:`, error)
