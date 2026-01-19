@@ -23,8 +23,8 @@ function App() {
     async function fetchData() {
       try {
         const [tempResponse, progressResponse] = await Promise.all([
-          fetch('/api/temperatures'),
-          fetch('/api/progress'),
+          fetch('/api/blanket'),
+          fetch('/api/last-completed-row'),
         ])
 
         if (!tempResponse.ok) {
@@ -101,7 +101,7 @@ function App() {
       progress.last_knitted_date === date ? null : date
 
     try {
-      const response = await fetch('/api/progress', {
+      const response = await fetch('/api/last-completed-row', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
